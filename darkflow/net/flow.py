@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 import pickle
 from multiprocessing.pool import ThreadPool
-import darkflow.cli as cli
+from ..cli import cliHandler
 
 train_stats = (
     'Training statistics: \n'
@@ -30,7 +30,7 @@ def _save_ckpt(self, step, loss_profile):
     self.saver.save(self.sess, ckpt)
 
     args = ['flow', '--pbLoad built_graph/tiny-yolo-voc-face.pb', '--load', '-1', '--imgdir', 'FaceDataset/validation/images', '--json']
-    cli.cliHandler(args)
+    cliHandler(args)
 
 def train(self):
     loss_ph = self.framework.placeholders
