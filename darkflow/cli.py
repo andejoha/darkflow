@@ -3,6 +3,7 @@ import os
 from .net.build import TFNet
 
 def cliHandler(args):
+    print(args)
     FLAGS = argHandler()
     FLAGS.setDefaults()
     FLAGS.parseArgs(args)
