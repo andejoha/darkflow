@@ -2,6 +2,8 @@ import glob
 import json
 import xml.etree.ElementTree as ET
 
+import numpy as np
+
 
 def evaluate_bounding_boxes():
     predicted_boxes = []
