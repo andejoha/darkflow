@@ -1,12 +1,14 @@
 import glob
 import json
 import xml.etree.ElementTree as ET
+import os
 
 
 import numpy as np
 
 
 def evaluate_bounding_boxes():
+    print('Current working directory:', os.getcwd())
     predicted_boxes = []
     json_list = glob.glob('../FaceDataset/validation/images/out/*.json')
     print(json_list)
