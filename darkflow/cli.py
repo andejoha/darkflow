@@ -49,7 +49,8 @@ def cliHandler(args):
         plt.ylabel('Intersection over Union')
         plt.xlabel('Steps')
         plt.title('Loss & IoU')
-        plt.savefig('plot/Loss & IoU')
+        plt.savefig('plot/Loss & IoU.png')
+
         if not FLAGS.savepb:
             exit('Training finished, exit.')
 
