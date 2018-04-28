@@ -8,6 +8,7 @@ import numpy as np
 def evaluate_bounding_boxes():
     predicted_boxes = []
     json_list = glob.glob('darkflow/FaceDataset/images/out/*.json')
+    print(json_list)
     for json_file in json_list:
         data = json.load(json_file)
         for obj in data:
@@ -19,6 +20,7 @@ def evaluate_bounding_boxes():
 
     annotation_boxes = []
     xml_list = glob.glob('darkflow/FaceDataset/annotations/*.xml')
+    print(xml_list)
     for xml_file in xml_list:
         tree = ET.parse(xml_file)
         root = tree.getroot()
@@ -30,8 +32,6 @@ def evaluate_bounding_boxes():
             ymax = int(bndbox.find('ymax').text)
             annotation_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
 
-    iou = 0
-    n = 0
     for true_box in annotation_boxes:
         for predicted_box in predicted_boxes:
             temp_iou = box_iou(true_box, predicted_box)
