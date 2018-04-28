@@ -105,6 +105,7 @@ def train(self):
         args = [step_now, profile]
         if not ckpt:
             iou_hist.append(_save_ckpt(self, *args))
+        plt.figure(step_now)
         plt.subplot(211)
         plt.plot(loss_hist)
         plt.ylabel('Loss')
