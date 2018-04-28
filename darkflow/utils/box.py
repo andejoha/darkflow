@@ -1,6 +1,5 @@
 import glob
 import json
-import os
 import xml.etree.ElementTree as ET
 
 import numpy as np
@@ -84,7 +83,10 @@ def box_union(a, b):
 
 
 def box_iou(a, b):
-    return box_intersection(a, b) / box_union(a, b);
+    if box_union(a, b) == 0:
+        return 0
+    else:
+        return box_intersection(a, b) / box_union(a, b);
 
 
 def prob_compare(box):
