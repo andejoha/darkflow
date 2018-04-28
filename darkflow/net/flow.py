@@ -105,16 +105,6 @@ def train(self):
         args = [step_now, profile]
         if not ckpt:
             iou_hist.append(_save_ckpt(self, *args))
-        plt.figure(step_now)
-        plt.subplot(211)
-        plt.plot(loss_hist)
-        plt.ylabel('Loss')
-        plt.subplot(212)
-        plt.plot(iou_hist)
-        plt.ylabel('Intersection over Union')
-        plt.xlabel('Steps')
-        plt.title('Loss & IoU')
-        plt.show()
 
     if ckpt:
         iou_hist.append(_save_ckpt(self, *args))

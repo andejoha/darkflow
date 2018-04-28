@@ -44,14 +44,12 @@ def cliHandler(args):
         plt.subplot(211)
         plt.plot(loss_hist)
         plt.ylabel('Loss')
-
         plt.subplot(212)
         plt.plot(iou_hist)
         plt.ylabel('Intersection over Union')
         plt.xlabel('Steps')
         plt.title('Loss & IoU')
-
-        plt.show()
+        plt.savefig('plot/Loss & IoU')
         if not FLAGS.savepb:
             exit('Training finished, exit.')
 
