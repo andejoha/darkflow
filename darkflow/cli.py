@@ -1,7 +1,10 @@
-from .defaults import argHandler #Import the default arguments
 import os
-from .net.build import TFNet
+
 import matplotlib.pyplot as plt
+
+from .defaults import argHandler  # Import the default arguments
+from .net.build import TFNet
+
 
 def cliHandler(args):
     FLAGS = argHandler()
@@ -13,25 +16,31 @@ def cliHandler(args):
         for d in dirs:
             this = os.path.abspath(os.path.join(os.path.curdir, d))
             if not os.path.exists(this): os.makedirs(this)
-    
-    requiredDirectories = [FLAGS.imgdir, FLAGS.binary, FLAGS.backup, os.path.join(FLAGS.imgdir,'out')]
+
+    requiredDirectories = [FLAGS.imgdir, FLAGS.binary, FLAGS.backup, os.path.join(FLAGS.imgdir, 'out')]
     if FLAGS.summary:
         requiredDirectories.append(FLAGS.summary)
 
     _get_dir(requiredDirectories)
 
     # fix FLAGS.load to appropriate type
-    try: FLAGS.load = int(FLAGS.load)
-    except: pass
+    try:
+        FLAGS.load = int(FLAGS.load)
+    except:
+        pass
 
     tfnet = TFNet(FLAGS)
-    
+
     if FLAGS.demo:
         tfnet.camera()
         exit('Demo stopped, exit.')
 
     if FLAGS.train:
-        print('Enter training ...'); loss_hist, iou_hist = tfnet.train()
+        print('Enter training ...')
+        loss_hist, iou_hist, steps = tfnet.train()
+        print('loss_hist =', loss_hist)
+        print('iou_hist =', iou_hist)
+
         plt.subplot(211)
         plt.plot(loss_hist)
         plt.ylabel('Loss')
@@ -43,11 +52,12 @@ def cliHandler(args):
         plt.title('Loss & IoU')
 
         plt.show()
-        if not FLAGS.savepb: 
+        if not FLAGS.savepb:
             exit('Training finished, exit.')
 
     if FLAGS.savepb:
         print('Rebuild a constant version ...')
-        tfnet.savepb(); exit('Done')
+        tfnet.savepb();
+        exit('Done')
 
     tfnet.predict()

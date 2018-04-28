@@ -7,6 +7,7 @@ import numpy as np
 import glob
 from .. import cli
 from ..utils.box import evaluate_bounding_boxes, EvalBoundBox
+import matplotlib.pyplot as plt
 
 train_stats = (
     'Training statistics: \n'
@@ -56,6 +57,7 @@ def _save_ckpt(self, step, loss_profile):
 def train(self):
     iou_hist = []
     loss_hist = []
+    steps = []
 
     loss_ph = self.framework.placeholders
     loss_mva = None;
@@ -96,12 +98,22 @@ def train(self):
         form = 'step {} - loss {} - moving ave loss {}'
         self.say(form.format(step_now, loss, loss_mva))
         loss_hist.append(loss)
+        steps.append(step_now)
         profile += [(loss, loss_mva)]
 
         ckpt = (i + 1) % (self.FLAGS.save // self.FLAGS.batch)
         args = [step_now, profile]
         if not ckpt:
             iou_hist.append(_save_ckpt(self, *args))
+        plt.subplot(211)
+        plt.plot(loss_hist)
+        plt.ylabel('Loss')
+        plt.subplot(212)
+        plt.plot(iou_hist)
+        plt.ylabel('Intersection over Union')
+        plt.xlabel('Steps')
+        plt.title('Loss & IoU')
+        plt.show()
 
     if ckpt:
         iou_hist.append(_save_ckpt(self, *args))
