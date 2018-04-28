@@ -10,7 +10,7 @@ import numpy as np
 def evaluate_bounding_boxes():
     print('Current working directory:', os.getcwd())
     predicted_boxes = []
-    json_list = glob.glob('../FaceDataset/validation/images/out/*.json')
+    json_list = glob.glob('FaceDataset/validation/images/out/*.json')
     print(json_list)
     for json_file in json_list:
         data = json.load(json_file)
@@ -22,7 +22,7 @@ def evaluate_bounding_boxes():
             predicted_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
 
     annotation_boxes = []
-    xml_list = glob.glob('../FaceDataset/validation/annotations/*.xml')
+    xml_list = glob.glob('FaceDataset/validation/annotations/*.xml')
     print(xml_list)
     for xml_file in xml_list:
         tree = ET.parse(xml_file)
