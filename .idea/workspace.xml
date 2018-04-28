@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48aec398-535d-41cb-a046-4e321ce9287c" name="Default" comment="" />
+    <list default="true" id="48aec398-535d-41cb-a046-4e321ce9287c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/darkflow/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/cli.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
-              <caret line="51" column="36" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="36" />
+              <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -284,7 +286,7 @@
     <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="36" />
+          <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

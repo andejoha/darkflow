@@ -109,7 +109,7 @@ def train(self):
     if ckpt:
         iou_hist.append(_save_ckpt(self, *args))
 
-    return loss_hist, iou_hist
+    return loss_hist, iou_hist, steps
 
 
 def return_predict(self, im):
