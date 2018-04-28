@@ -32,7 +32,8 @@ def _save_ckpt(self, step, loss_profile):
 
     args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir', 'FaceDataset/validation/images', '--json']
     cli.cliHandler(args)
-    evaluate_bounding_boxes()
+    iou = evaluate_bounding_boxes()
+    print(iou)
 
 def train(self):
     loss_ph = self.framework.placeholders

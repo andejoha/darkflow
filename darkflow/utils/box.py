@@ -13,7 +13,7 @@ def evaluate_bounding_boxes():
             ymin = int(obj['topleft']['y'])
             xmax = int(obj['bottomright']['x'])
             ymax = int(obj['bottomright']['x'])
-            predicted_boxes.append(BoundBox(xmin, ymin, xmax, ymax))
+            predicted_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
 
     annotation_boxes = []
     xml_list = glob.glob('darkflow/FaceDataset/annotations/*.xml')
@@ -26,10 +26,29 @@ def evaluate_bounding_boxes():
             ymin = int(bndbox.find('ymin').text)
             xmax = int(bndbox.find('xmax').text)
             ymax = int(bndbox.find('ymax').text)
-            annotation_boxes.append(BoundBox(xmin, ymin, xmax, ymax))
+            annotation_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
+
+    iou = 0
+    n = 0
+    for true_box in annotation_boxes:
+        for predicted_box in predicted_boxes:
+            temp_iou = box_iou(true_box, predicted_box)
+            if iou > 0:
+                iou += iou
+                n += 1
+    return iou
 
 
 class BoundBox:
+    def __init__(self, classes):
+        self.x, self.y = float(), float()
+        self.w, self.h = float(), float()
+        self.c = float()
+        self.class_num = classes
+        self.probs = np.zeros((classes,))
+
+
+class EvalBoundBox:
     def __init__(self, xmin, ymin, xmax, ymax):
         self.x = xmin
         self.y = ymin
