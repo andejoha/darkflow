@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 import pickle
 from multiprocessing.pool import ThreadPool
-import ..cli as cli
+import darkflow.cli as cli
 
 train_stats = (
     'Training statistics: \n'
