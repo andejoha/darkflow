@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48aec398-535d-41cb-a046-4e321ce9287c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/darkflow/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darkflow/net/flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/net/flow.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="flow.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="flow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="543">
+              <caret line="174" column="76" selection-start-line="174" selection-start-column="76" selection-end-line="174" selection-end-column="76" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -36,14 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cli.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cli.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#62#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -89,8 +86,8 @@
       <list>
         <option value="$PROJECT_DIR$/darkflow/net/build.py" />
         <option value="$PROJECT_DIR$/darkflow/utils/box.py" />
-        <option value="$PROJECT_DIR$/darkflow/net/flow.py" />
         <option value="$PROJECT_DIR$/darkflow/cli.py" />
+        <option value="$PROJECT_DIR$/darkflow/net/flow.py" />
       </list>
     </option>
   </component>
@@ -229,22 +226,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
+    <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
+    <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="543">
+          <caret line="174" column="76" selection-start-line="174" selection-start-column="76" selection-end-line="174" selection-end-column="76" />
           <folding>
-            <element signature="e#0#62#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

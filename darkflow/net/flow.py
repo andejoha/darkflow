@@ -164,7 +164,7 @@ def predict(self):
         stop = time.time();
         last = stop - start
         # self.say('Total time = {}s / {} inps = {} ips'.format(
-        last, len(inp_feed), len(inp_feed) / last))
+        last, len(inp_feed), len(inp_feed) / last
 
         # Post processing
         # self.say('Post processing {} inputs ...'.format(len(inp_feed)))
