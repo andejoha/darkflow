@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48aec398-535d-41cb-a046-4e321ce9287c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/darkflow/net/flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/net/flow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darkflow/utils/box.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/utils/box.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,8 +40,8 @@
       <file leaf-file-name="flow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+            <state relative-caret-position="116">
+              <caret line="32" column="90" selection-start-line="32" selection-start-column="90" selection-end-line="32" selection-end-column="90" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -243,8 +242,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+        <state relative-caret-position="116">
+          <caret line="32" column="90" selection-start-line="32" selection-start-column="90" selection-end-line="32" selection-end-column="90" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
