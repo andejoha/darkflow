@@ -29,7 +29,7 @@ def evaluate_bounding_boxes():
             xmax = int(bndbox.find('xmax').text)
             ymax = int(bndbox.find('ymax').text)
             annotation_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
-            
+
     shutil.rmtree('FaceDataset/validation/images/out')
     iou = 0
     n = 0
@@ -37,7 +37,6 @@ def evaluate_bounding_boxes():
         for predicted_box in predicted_boxes:
             temp_iou = box_iou(true_box, predicted_box)
             if temp_iou > 0:
-                print(temp_iou)
                 iou += temp_iou
                 n += 1
     return iou / n
