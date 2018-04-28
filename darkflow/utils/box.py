@@ -38,7 +38,7 @@ def evaluate_bounding_boxes():
             if iou > 0:
                 iou += iou
                 n += 1
-    return iou
+    return iou/n
 
 
 class BoundBox:
