@@ -28,7 +28,7 @@ def _save_ckpt(self, step, loss_profile):
     self.say('Checkpoint at step {}'.format(step))
     self.saver.save(self.sess, ckpt)
 
-    args = ['flow', '--pbLoad', 'built_graph/tiny-yolo-voc-face.pb', '--load', '-1', '--imgdir', 'FaceDataset/validation/images', '--json']
+    args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir', 'FaceDataset/validation/images', '--json']
     cli.cliHandler(args)
 
 def train(self):
