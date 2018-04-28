@@ -5,6 +5,8 @@ import tensorflow as tf
 import pickle
 from multiprocessing.pool import ThreadPool
 from .. import cli
+from ..utils.box import BoundBox
+
 train_stats = (
     'Training statistics: \n'
     '\tLearning rate : {}\n'
@@ -30,6 +32,7 @@ def _save_ckpt(self, step, loss_profile):
 
     args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir', 'FaceDataset/validation/images', '--json']
     cli.cliHandler(args)
+
 
 def train(self):
     loss_ph = self.framework.placeholders
