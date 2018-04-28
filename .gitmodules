@@ -1,3 +1,0 @@
-[submodule "darkflow/net/mAP"]
-	path = darkflow/net/mAP
-	url = https://github.com/Cartucho/mAP
