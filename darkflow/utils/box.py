@@ -13,7 +13,7 @@ def evaluate_bounding_boxes():
     json_list = glob.glob('FaceDataset/validation/images/out/*.json')
     print(json_list)
     for json_file in json_list:
-        data = json.load(json_file)
+        data = json.load(open(json_file))
         for obj in data:
             xmin = int(obj['topleft']['x'])
             ymin = int(obj['topleft']['y'])
