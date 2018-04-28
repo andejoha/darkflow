@@ -65,6 +65,8 @@ def train(self):
     loss_op = self.framework.loss
 
     for i, (x_batch, datum) in enumerate(batches):
+        print('lost_hits =', loss_hist)
+        print('iou_hist =', iou_hist)
         if not i: self.say(train_stats.format(
             self.FLAGS.lr, self.FLAGS.batch,
             self.FLAGS.epoch, self.FLAGS.save
