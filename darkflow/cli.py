@@ -4,8 +4,10 @@ from .net.build import TFNet
 import matplotlib.pyplot as plt
 
 def cliHandler(args):
-    global loss_hist = []
-    global iou_hist = []
+    global loss_hist
+    global iou_hist
+    loss_hist = []
+    iou_hist = []
 
     FLAGS = argHandler()
     FLAGS.setDefaults()
