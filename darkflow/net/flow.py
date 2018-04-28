@@ -5,7 +5,7 @@ import tensorflow as tf
 import pickle
 from multiprocessing.pool import ThreadPool
 from .. import cli
-from ..utils.box import BoundBox
+from ..utils.box import evaluate_bounding_boxes
 
 train_stats = (
     'Training statistics: \n'
@@ -32,7 +32,7 @@ def _save_ckpt(self, step, loss_profile):
 
     args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir', 'FaceDataset/validation/images', '--json']
     cli.cliHandler(args)
-
+    evaluate_bounding_boxes()
 
 def train(self):
     loss_ph = self.framework.placeholders
