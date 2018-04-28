@@ -35,10 +35,7 @@ def evaluate_bounding_boxes():
     for true_box in annotation_boxes:
         for predicted_box in predicted_boxes:
             temp_iou = box_iou(true_box, predicted_box)
-            if temp_iou > 0:
-                iou += temp_iou
-                n += 1
-    return iou, n
+            print(temp_iou)
 
 
 class BoundBox:
