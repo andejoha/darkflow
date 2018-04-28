@@ -50,11 +50,13 @@ def _save_ckpt(self, step, loss_profile):
     cli.cliHandler(args)
     iou = evaluate_bounding_boxes(annotation_boxes)
     print('Intersection over Union:', iou)
-    iou_hist.append(iou)
-    print(iou_hist)
+    return iou
 
 
 def train(self):
+    iou_hist = []
+    loss_hist = []
+
     loss_ph = self.framework.placeholders
     loss_mva = None;
     profile = list()
@@ -92,14 +94,15 @@ def train(self):
         form = 'step {} - loss {} - moving ave loss {}'
         self.say(form.format(step_now, loss, loss_mva))
         loss_hist.append(loss)
-        print(loss_hist)
         profile += [(loss, loss_mva)]
 
         ckpt = (i + 1) % (self.FLAGS.save // self.FLAGS.batch)
         args = [step_now, profile]
-        if not ckpt: _save_ckpt(self, *args)
+        if not ckpt:
+            iou_hist.append(_save_ckpt(self, *args))
 
-    if ckpt: _save_ckpt(self, *args)
+    if ckpt:
+        iou_hist.append(_save_ckpt(self, *args))
 
 
 def return_predict(self, im):

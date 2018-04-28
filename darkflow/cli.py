@@ -4,11 +4,6 @@ from .net.build import TFNet
 import matplotlib.pyplot as plt
 
 def cliHandler(args):
-    global loss_hist
-    global iou_hist
-    loss_hist = []
-    iou_hist = []
-
     FLAGS = argHandler()
     FLAGS.setDefaults()
     FLAGS.parseArgs(args)
@@ -36,7 +31,18 @@ def cliHandler(args):
         exit('Demo stopped, exit.')
 
     if FLAGS.train:
-        print('Enter training ...'); tfnet.train()
+        print('Enter training ...'); loss_hist, iou_hist = tfnet.train()
+        plt.subplot(211)
+        plt.plot(loss_hist)
+        plt.ylabel('Loss')
+
+        plt.subplot(212)
+        plt.plot(iou_hist)
+        plt.ylabel('Intersection over Union')
+        plt.xlabel('Steps')
+        plt.title('Loss & IoU')
+
+        plt.show()
         if not FLAGS.savepb: 
             exit('Training finished, exit.')
 
@@ -45,15 +51,3 @@ def cliHandler(args):
         tfnet.savepb(); exit('Done')
 
     tfnet.predict()
-
-    plt.subplot(211)
-    plt.plot(loss_hist)
-    plt.ylabel('Loss')
-
-    plt.subplot(212)
-    plt.plot(iou_hist)
-    plt.ylabel('Intersection over Union')
-    plt.xlabel('Steps')
-    plt.title('Loss & IoU')
-
-    plt.show()
