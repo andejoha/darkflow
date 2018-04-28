@@ -1,9 +1,12 @@
 from .defaults import argHandler #Import the default arguments
 import os
 from .net.build import TFNet
+import matplotlib.pyplot as plt
 
 def cliHandler(args):
-    print(args)
+    global loss_hist = []
+    global iou_hist = []
+
     FLAGS = argHandler()
     FLAGS.setDefaults()
     FLAGS.parseArgs(args)
@@ -40,3 +43,15 @@ def cliHandler(args):
         tfnet.savepb(); exit('Done')
 
     tfnet.predict()
+
+    plt.subplot(211)
+    plt.plot(loss_hist)
+    plt.ylabel('Loss')
+
+    plt.subplot(212)
+    plt.plot(iou_hist)
+    plt.ylabel('Intersection over Union')
+    plt.xlabel('Steps')
+    plt.title('Loss & IoU')
+
+    plt.show()

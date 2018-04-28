@@ -5,7 +5,7 @@ import shutil
 import numpy as np
 
 
-def evaluate_bounding_boxes():
+def evaluate_bounding_boxes(annotation_boxes):
     predicted_boxes = []
     json_list = glob.glob('FaceDataset/validation/images/out/*.json')
     for json_file in json_list:
@@ -17,20 +17,6 @@ def evaluate_bounding_boxes():
             ymax = int(obj['bottomright']['x'])
             predicted_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
 
-    annotation_boxes = []
-    xml_list = glob.glob('FaceDataset/validation/annotations/*.xml')
-    for xml_file in xml_list:
-        tree = ET.parse(xml_file)
-        root = tree.getroot()
-        for obj in root.findall('object'):
-            bndbox = obj.find('bndbox')
-            xmin = int(bndbox.find('xmin').text)
-            ymin = int(bndbox.find('ymin').text)
-            xmax = int(bndbox.find('xmax').text)
-            ymax = int(bndbox.find('ymax').text)
-            annotation_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
-
-    shutil.rmtree('FaceDataset/validation/images/out')
     iou = 0
     n = 0
     for true_box in annotation_boxes:
