@@ -26,7 +26,7 @@ def evaluate_bounding_boxes(annotation_boxes):
                 if temp_iou > 0.1:
                     iou += temp_iou
                     n += 1
-    if n == 0:
+    if n != 0:
         return iou / n
     else:
         return 0
