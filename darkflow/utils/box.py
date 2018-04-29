@@ -12,6 +12,7 @@ def evaluate_bounding_boxes(annotation_boxes):
         name = json_file[34:]
         for obj in data:
             confidence = int(obj['confidence'])
+            print(confidence)
             xmin = int(obj['topleft']['x'])
             ymin = int(obj['topleft']['y'])
             xmax = int(obj['bottomright']['x'])
