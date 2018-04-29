@@ -22,7 +22,7 @@ def evaluate_bounding_boxes(annotation_boxes):
     n = 0
     confidence = 0
     for predicted_box in predicted_boxes:
-        confidence += int(predicted_box.confidence)
+        confidence += predicted_box.confidence
         for true_box in annotation_boxes:
             if true_box.name[:-4] == predicted_box.name[:-5]:
                 temp_iou = box_iou(true_box, predicted_box)
@@ -45,7 +45,7 @@ class BoundBox:
 
 
 class EvalBoundBox:
-    def __init__(self, confidence, name, xmin, ymin, xmax, ymax):
+    def __init__(self, name, confidence, xmin, ymin, xmax, ymax):
         self.name = name
         self.confidence = confidence
         self.x = xmin
