@@ -41,6 +41,8 @@ def cliHandler(args):
         print('loss_hist =', loss_hist)
         print('iou_hist =', iou_hist)
 
+        if not os.path.exists('plot/'):
+            os.makedirs('plot')
         plt.subplot(211)
         plt.plot(loss_hist)
         plt.ylabel('Loss')
