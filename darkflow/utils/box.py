@@ -1,7 +1,6 @@
 import glob
 import json
-import xml.etree.ElementTree as ET
-import shutil
+
 import numpy as np
 
 
@@ -10,13 +9,13 @@ def evaluate_bounding_boxes(annotation_boxes):
     json_list = glob.glob('FaceDataset/validation/images/out/*.json')
     for json_file in json_list:
         data = json.load(open(json_file))
-        print(type(json_file), json_file)
+        name = json_file[34:]
         for obj in data:
             xmin = int(obj['topleft']['x'])
             ymin = int(obj['topleft']['y'])
             xmax = int(obj['bottomright']['x'])
             ymax = int(obj['bottomright']['x'])
-            predicted_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
+            predicted_boxes.append(EvalBoundBox(name, xmin, ymin, xmax, ymax))
 
     iou = 0
     n = 0
@@ -42,7 +41,8 @@ class BoundBox:
 
 
 class EvalBoundBox:
-    def __init__(self, xmin, ymin, xmax, ymax):
+    def __init__(self, name, xmin, ymin, xmax, ymax):
+        self.name = name
         self.x = xmin
         self.y = ymin
         self.w = xmax - xmin

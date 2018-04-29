@@ -1,13 +1,14 @@
+import glob
 import os
 import pickle
 import time
-from multiprocessing.pool import ThreadPool
 import xml.etree.ElementTree as ET
+from multiprocessing.pool import ThreadPool
+
 import numpy as np
-import glob
+
 from .. import cli
 from ..utils.box import evaluate_bounding_boxes, EvalBoundBox
-import matplotlib.pyplot as plt
 
 train_stats = (
     'Training statistics: \n'
@@ -38,14 +39,14 @@ def _save_ckpt(self, step, loss_profile):
     for xml_file in xml_list:
         tree = ET.parse(xml_file)
         root = tree.getroot()
-        print(type(xml_file), xml_file)
+        name = xml_file[35:]
         for obj in root.findall('object'):
             bndbox = obj.find('bndbox')
             xmin = int(bndbox.find('xmin').text)
             ymin = int(bndbox.find('ymin').text)
             xmax = int(bndbox.find('xmax').text)
             ymax = int(bndbox.find('ymax').text)
-            annotation_boxes.append(EvalBoundBox(xmin, ymin, xmax, ymax))
+            annotation_boxes.append(EvalBoundBox(name, xmin, ymin, xmax, ymax))
 
     args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir',
             'FaceDataset/validation/images', '--json', '--gpu', '1.0']
@@ -181,9 +182,9 @@ def predict(self):
         # self.say('Post processing {} inputs ...'.format(len(inp_feed)))
         start = time.time()
         pool.map(lambda p: (lambda i, prediction:
-        self.framework.postprocess(
-            prediction, os.path.join(inp_path, this_batch[i])))(*p),
-                                                               enumerate(out))
+                            self.framework.postprocess(
+                                prediction, os.path.join(inp_path, this_batch[i])))(*p),
+                 enumerate(out))
         stop = time.time();
         last = stop - start
 
