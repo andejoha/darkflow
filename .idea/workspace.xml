@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48aec398-535d-41cb-a046-4e321ce9287c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/darkflow/net/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/net/help.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/darkflow/utils/box.py" beforeDir="false" afterPath="$PROJECT_DIR$/darkflow/utils/box.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +17,7 @@
       <file leaf-file-name="build.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/darkflow/net/build.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1111">
+            <state relative-caret-position="2460">
               <caret line="164" column="34" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -25,10 +26,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="help.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/darkflow/net/help.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="52" column="20" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="cli.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
+            <state relative-caret-position="558">
               <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -40,7 +50,7 @@
       <file leaf-file-name="flow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
+            <state relative-caret-position="1364">
               <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="112" selection-end-column="54" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -52,8 +62,8 @@
       <file leaf-file-name="box.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/darkflow/utils/box.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="268">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -90,6 +100,7 @@
         <option value="$PROJECT_DIR$/something.py" />
         <option value="$PROJECT_DIR$/darkflow/net/flow.py" />
         <option value="$PROJECT_DIR$/darkflow/cli.py" />
+        <option value="$PROJECT_DIR$/darkflow/net/help.py" />
         <option value="$PROJECT_DIR$/darkflow/utils/box.py" />
       </list>
     </option>
@@ -279,19 +290,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/darkflow/net/build.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1111">
-          <caret line="164" column="34" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/darkflow/cli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
+        <state relative-caret-position="558">
           <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -299,9 +300,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/darkflow/net/build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="164" column="34" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/darkflow/net/help.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/darkflow/net/flow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
+        <state relative-caret-position="1364">
           <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="112" selection-end-column="54" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -311,8 +329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/darkflow/utils/box.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="268">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

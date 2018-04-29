@@ -87,7 +87,7 @@ def camera(self):
         cv2.namedWindow('', 0)
         _, frame = camera.read()
         height, width, _ = frame.shape
-        cv2.resizeWindow('', width, height)
+        cv2.resizeWindow('', 500, 500)
     else:
         _, frame = camera.read()
         height, width, _ = frame.shape
