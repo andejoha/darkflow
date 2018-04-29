@@ -44,13 +44,13 @@ def cliHandler(args):
         if not os.path.exists('plot/'):
             os.makedirs('plot')
         plt.subplot(211)
+        plt.title('Loss & IoU')
         plt.plot(loss_hist)
         plt.ylabel('Loss')
         plt.subplot(212)
         plt.plot(iou_hist)
         plt.ylabel('Intersection over Union')
         plt.xlabel('Steps')
-        plt.title('Loss & IoU')
         plt.savefig('plot/Loss_&_IoU.png')
 
         if not FLAGS.savepb:
