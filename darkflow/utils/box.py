@@ -32,7 +32,7 @@ def evaluate_bounding_boxes(annotation_boxes):
                     iou += temp_iou
                     n += 1
     if n != 0:
-        return iou / n, confidence / 1
+        return iou / n, confidence / i
     else:
         return 0, 0
 
