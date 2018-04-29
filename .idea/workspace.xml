@@ -52,8 +52,8 @@
       <file leaf-file-name="box.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/darkflow/utils/box.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="219">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -311,8 +311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/darkflow/utils/box.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="219">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
