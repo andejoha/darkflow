@@ -10,6 +10,7 @@ def evaluate_bounding_boxes(annotation_boxes):
     json_list = glob.glob('FaceDataset/validation/images/out/*.json')
     for json_file in json_list:
         data = json.load(open(json_file))
+        print(type(json_file), json_file)
         for obj in data:
             xmin = int(obj['topleft']['x'])
             ymin = int(obj['topleft']['y'])
@@ -22,10 +23,13 @@ def evaluate_bounding_boxes(annotation_boxes):
     for true_box in annotation_boxes:
         for predicted_box in predicted_boxes:
             temp_iou = box_iou(true_box, predicted_box)
-            if temp_iou > 0:
+            if temp_iou > 0.1:
                 iou += temp_iou
                 n += 1
-    return iou / n
+    if not n:
+        return iou / n
+    else:
+        return 0
 
 
 class BoundBox:

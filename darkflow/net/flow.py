@@ -38,6 +38,7 @@ def _save_ckpt(self, step, loss_profile):
     for xml_file in xml_list:
         tree = ET.parse(xml_file)
         root = tree.getroot()
+        print(type(xml_file), xml_file)
         for obj in root.findall('object'):
             bndbox = obj.find('bndbox')
             xmin = int(bndbox.find('xmin').text)
