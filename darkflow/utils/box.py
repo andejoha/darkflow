@@ -10,7 +10,6 @@ def evaluate_bounding_boxes(annotation_boxes):
     for json_file in json_list:
         data = json.load(open(json_file))
         name = json_file[34:]
-        print(data)
         for obj in data:
             confidence = float(obj['confidence'])
             xmin = int(obj['topleft']['x'])
@@ -20,10 +19,12 @@ def evaluate_bounding_boxes(annotation_boxes):
             predicted_boxes.append(EvalBoundBox(name, confidence, xmin, ymin, xmax, ymax))
 
     iou = 0
+    i = 0
     n = 0
     confidence = 0
     for predicted_box in predicted_boxes:
         confidence += predicted_box.confidence
+        i += 1
         for true_box in annotation_boxes:
             if true_box.name[:-4] == predicted_box.name[:-5]:
                 temp_iou = box_iou(true_box, predicted_box)
@@ -31,7 +32,7 @@ def evaluate_bounding_boxes(annotation_boxes):
                     iou += temp_iou
                     n += 1
     if n != 0:
-        return iou / n, confidence / n
+        return iou / n, confidence / 1
     else:
         return 0, 0
 
