@@ -46,18 +46,20 @@ def _save_ckpt(self, step, loss_profile):
             ymin = int(bndbox.find('ymin').text)
             xmax = int(bndbox.find('xmax').text)
             ymax = int(bndbox.find('ymax').text)
-            annotation_boxes.append(EvalBoundBox(name, xmin, ymin, xmax, ymax))
+            annotation_boxes.append(EvalBoundBox(name, 0, xmin, ymin, xmax, ymax))
 
     args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir',
             'FaceDataset/validation/images', '--json', '--gpu', '1.0']
     cli.cliHandler(args)
-    iou = evaluate_bounding_boxes(annotation_boxes)
+    iou, avg_confidence = evaluate_bounding_boxes(annotation_boxes)
     print('Intersection over Union:', iou)
-    return iou
+    print('Average confidence:', avg_confidence)
+    return iou, avg_confidence
 
 
 def train(self):
     iou_hist = []
+    avg_confidence_hist = []
     loss_hist = []
     steps = []
 
@@ -106,12 +108,15 @@ def train(self):
         ckpt = (i + 1) % (self.FLAGS.save // self.FLAGS.batch)
         args = [step_now, profile]
         if not ckpt:
-            iou_hist.append(_save_ckpt(self, *args))
+            iou, avg_confidence = _save_ckpt(self, *args)
+            iou_hist.append(iou)
+            avg_confidence_hist.append(avg_confidence)
 
     if ckpt:
-        iou_hist.append(_save_ckpt(self, *args))
-
-    return loss_hist, iou_hist, steps
+        iou, avg_confidence = _save_ckpt(self, *args)
+        iou_hist.append(iou)
+        avg_confidence_hist.append(avg_confidence)
+    return loss_hist, iou_hist, avg_confidence_hist, steps
 
 
 def return_predict(self, im):

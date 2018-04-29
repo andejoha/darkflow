@@ -37,19 +37,21 @@ def cliHandler(args):
 
     if FLAGS.train:
         print('Enter training ...')
-        loss_hist, iou_hist, steps = tfnet.train()
+        loss_hist, iou_hist, avg_confidence_hist, steps = tfnet.train()
         print('loss_hist =', loss_hist)
         print('iou_hist =', iou_hist)
 
         if not os.path.exists('plot/'):
             os.makedirs('plot')
-        plt.subplot(211)
+        plt.subplot(311)
         plt.title('Loss & IoU')
         plt.plot(loss_hist)
         plt.ylabel('Loss')
-        plt.subplot(212)
+        plt.subplot(312)
         plt.plot(iou_hist)
         plt.ylabel('Intersection over Union')
+        plt.subplot(313)
+        plt.plot(avg_confidence_hist)
         plt.xlabel('Steps')
         plt.savefig('plot/Loss_&_IoU.png')
 
