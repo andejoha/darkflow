@@ -22,7 +22,6 @@ def evaluate_bounding_boxes(annotation_boxes):
     for true_box in annotation_boxes:
         for predicted_box in predicted_boxes:
             if true_box.name[:-4] == predicted_box.name[:-5]:
-                print(true_box.name, predicted_box.name)
                 temp_iou = box_iou(true_box, predicted_box)
                 if temp_iou > 0.1:
                     iou += temp_iou
