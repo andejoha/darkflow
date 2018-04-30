@@ -60,7 +60,6 @@ def _save_ckpt(self, step, loss_profile):
 
 
 def train(self):
-    history =
     iou_hist = []
     avg_confidence_hist = []
     loss_hist = []
