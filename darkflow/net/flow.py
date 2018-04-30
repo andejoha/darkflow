@@ -55,7 +55,7 @@ def _save_ckpt(self, step, loss_profile):
     print('Intersection over Union:', iou)
     print('Average confidence:', avg_confidence)
     with open('history.txt', 'a') as history:
-        history.write(str(iou)+' '+str(avg_confidence))
+        history.write(str(iou)+' '+str(avg_confidence)+'\n')
     return iou, avg_confidence
 
 
