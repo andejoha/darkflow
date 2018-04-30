@@ -20,7 +20,7 @@ train_stats = (
 pool = ThreadPool()
 
 
-def _save_ckpt(self, step, loss_profile):
+def _save_ckpt(self, step, loss_profile, annotation_boxes):
     file = '{}-{}{}'
     model = self.meta['name']
 
@@ -33,20 +33,6 @@ def _save_ckpt(self, step, loss_profile):
     ckpt = os.path.join(self.FLAGS.backup, ckpt)
     self.say('Checkpoint at step {}'.format(step))
     self.saver.save(self.sess, ckpt)
-
-    annotation_boxes = []
-    xml_list = glob.glob('FaceDataset/validation/annotations/*.xml')
-    for xml_file in xml_list:
-        tree = ET.parse(xml_file)
-        root = tree.getroot()
-        name = xml_file[35:]
-        for obj in root.findall('object'):
-            bndbox = obj.find('bndbox')
-            xmin = int(bndbox.find('xmin').text)
-            ymin = int(bndbox.find('ymin').text)
-            xmax = int(bndbox.find('xmax').text)
-            ymax = int(bndbox.find('ymax').text)
-            annotation_boxes.append(EvalBoundBox(name, 0, xmin, ymin, xmax, ymax))
 
     args = ['flow', '--model', 'cfg/tiny-yolo-voc-face.cfg', '--load', '-1', '--imgdir',
             'FaceDataset/validation/images', '--json', '--gpu', '1.0']
@@ -64,6 +50,19 @@ def train(self):
     avg_confidence_hist = []
     loss_hist = []
     steps = []
+    annotation_boxes = []
+    xml_list = glob.glob('FaceDataset/validation/annotations/*.xml')
+    for xml_file in xml_list:
+        tree = ET.parse(xml_file)
+        root = tree.getroot()
+        name = xml_file[35:]
+        for obj in root.findall('object'):
+            bndbox = obj.find('bndbox')
+            xmin = int(bndbox.find('xmin').text)
+            ymin = int(bndbox.find('ymin').text)
+            xmax = int(bndbox.find('xmax').text)
+            ymax = int(bndbox.find('ymax').text)
+            annotation_boxes.append(EvalBoundBox(name, 0, xmin, ymin, xmax, ymax))
 
     loss_ph = self.framework.placeholders
     loss_mva = None;
@@ -106,7 +105,7 @@ def train(self):
         profile += [(loss, loss_mva)]
 
         ckpt = (i + 1) % (self.FLAGS.save // self.FLAGS.batch)
-        args = [step_now, profile]
+        args = [step_now, profile, annotation_boxes]
         if not ckpt:
             iou, avg_confidence = _save_ckpt(self, *args)
             iou_hist.append(iou)
