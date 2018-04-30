@@ -40,8 +40,6 @@ def _save_ckpt(self, step, loss_profile, annotation_boxes):
     iou, avg_confidence = evaluate_bounding_boxes(annotation_boxes)
     print('Intersection over Union:', iou)
     print('Average confidence:', avg_confidence)
-    with open('history.txt', 'a') as history:
-        history.write(str(iou)+' '+str(avg_confidence)+'\n')
     return iou, avg_confidence
 
 
@@ -108,6 +106,8 @@ def train(self):
         args = [step_now, profile, annotation_boxes]
         if not ckpt:
             iou, avg_confidence = _save_ckpt(self, *args)
+            with open('history.txt', 'a') as history:
+                history.write(str(loss) + ' ' + str(iou) + ' ' + str(avg_confidence) + '\n')
             iou_hist.append(iou)
             avg_confidence_hist.append(avg_confidence)
 
