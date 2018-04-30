@@ -54,10 +54,13 @@ def _save_ckpt(self, step, loss_profile):
     iou, avg_confidence = evaluate_bounding_boxes(annotation_boxes)
     print('Intersection over Union:', iou)
     print('Average confidence:', avg_confidence)
+    with open('history.txt', 'a') as history:
+        history.write(str(iou)+' '+str(avg_confidence))
     return iou, avg_confidence
 
 
 def train(self):
+    history =
     iou_hist = []
     avg_confidence_hist = []
     loss_hist = []
@@ -71,8 +74,6 @@ def train(self):
     loss_op = self.framework.loss
 
     for i, (x_batch, datum) in enumerate(batches):
-        #print('lost_hits =', loss_hist)
-        #print('iou_hist =', iou_hist)
         if not i: self.say(train_stats.format(
             self.FLAGS.lr, self.FLAGS.batch,
             self.FLAGS.epoch, self.FLAGS.save

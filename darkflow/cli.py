@@ -44,7 +44,7 @@ def cliHandler(args):
         if not os.path.exists('plot/'):
             os.makedirs('plot')
         plt.subplot(311)
-        plt.title('Loss & IoU')
+        plt.title('Loss, IoU & Confidence')
         plt.plot(loss_hist)
         plt.ylabel('Loss')
         plt.subplot(312)
@@ -52,6 +52,7 @@ def cliHandler(args):
         plt.ylabel('Intersection over Union')
         plt.subplot(313)
         plt.plot(avg_confidence_hist)
+        plt.ylabel('Confidence')
         plt.xlabel('Steps')
         plt.savefig('plot/Loss_&_IoU.png')
 
